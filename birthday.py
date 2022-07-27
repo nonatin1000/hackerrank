@@ -111,21 +111,18 @@ def birthday(s, d, m):
 
 
 if __name__ == "__main__":
-    fptr = open("birthday.txt", "w")
+    with open("birthday.txt", "w") as fptr:
+        n = int(input().strip())
 
-    n = int(input().strip())
+        s = list(map(int, input().rstrip().split()))
 
-    s = list(map(int, input().rstrip().split()))
+        first_multiple_input = input().rstrip().split()
 
-    first_multiple_input = input().rstrip().split()
+        d = int(first_multiple_input[0])
 
-    d = int(first_multiple_input[0])
+        m = int(first_multiple_input[1])
 
-    m = int(first_multiple_input[1])
+        result = birthday(s, d, m)
+        print("result:", result)
 
-    result = birthday(s, d, m)
-    print("result:", result)
-
-    fptr.write(str(result) + "\n")
-
-    fptr.close()
+        fptr.write(str(result) + "\n")
